@@ -6,7 +6,7 @@ name: Build and deploy Node.js app to Azure Web App - testReactApps
 on:
   push:
     branches:
-      - Main
+      - main
   workflow_dispatch:
 
 jobs:
@@ -31,7 +31,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: node-app
-          path: build/
+          path: .
 
   deploy:
     runs-on: ubuntu-latest
@@ -51,9 +51,9 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v1
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_00F5F09AA0454BEDA3946995682FFE9F }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_F355856B5AB14680800E416915097009 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_85E3B131F9284B349D888D5D16792D66 }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_79025F75F5734737842AB7E080F7610A }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_CA6ECBE15F70450EA17FC7EBDDBE4A42 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_20CDF333A4D84FF9841C619D80344709 }}
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
